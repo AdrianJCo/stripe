@@ -1,5 +1,9 @@
 package uk.mediaibntaymiyya.stripe.repository;
 
-public class AuthorRepository {
+import org.springframework.data.repository.CrudRepository;
+
+import uk.mediaibntaymiyya.stripe.model.Author;
+
+public interface AuthorRepository extends CrudRepository<Author, Integer>{
 
 }

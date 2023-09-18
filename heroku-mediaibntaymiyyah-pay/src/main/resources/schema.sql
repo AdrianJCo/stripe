@@ -10,17 +10,19 @@ create table IF NOT EXISTS Author (
 -- post
 create table IF NOT EXISTS Post (
 	id serial primary key,
-	first_name varchar(100) not null,
-	last_name varchar(100) not null,
-	email varchar(255) not null,
-	username varchar(100) not null
+	version int,
+	title varchar(255) not null,
+	content text not null,
+	published_on timestamp not null,
+	author int,
+	foreign key (author) references Author(id)
 );
 
 -- comment
 create table IF NOT EXISTS Comment (
-	id serial primary key,
-	first_name varchar(100) not null,
-	last_name varchar(100) not null,
-	email varchar(255) not null,
+	post int not null,
+	name varchar(100) not null,
+	content text not null,
+	published_on timestamp not null,
 	username varchar(100) not null
 );
